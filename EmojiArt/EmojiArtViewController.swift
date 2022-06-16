@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class EmojiArtViewController: UIViewController {
+
+    private lazy var dropZone: UIView = {
+        let view = UIView()
+        return view
+    }()
+
+    private lazy var emojiArtView: EmojiArtView = {
+        let view = EmojiArtView()
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = . red
+
+        addViews()
+        setupDropZone()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension EmojiArtViewController {
+    private func addViews() {
+        view.addSubview(dropZone)
+        view.addSubview(emojiArtView)
     }
-    */
 
+    private func setupDropZone() {
+        dropZone.height(100)
+        dropZone.width(200)
+        dropZone.topToSuperview()
+        dropZone.leadingToSuperview()
+        dropZone.backgroundColor = . black
+    }
 }

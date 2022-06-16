@@ -13,6 +13,7 @@
 		5EFFF00828577C7E007DC4C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFFF00628577C7E007DC4C6 /* LaunchScreen.storyboard */; };
 		5EFFF01028577CE2007DC4C6 /* EmojiArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFFF00F28577CE2007DC4C6 /* EmojiArtViewController.swift */; };
 		5EFFF012285B0266007DC4C6 /* EmojiArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFFF011285B0266007DC4C6 /* EmojiArtView.swift */; };
+		5EFFF015285B0427007DC4C6 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 5EFFF014285B0427007DC4C6 /* TinyConstraints */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EFFF015285B0427007DC4C6 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = EmojiArt;
+			packageProductDependencies = (
+				5EFFF014285B0427007DC4C6 /* TinyConstraints */,
+			);
 			productName = EmojiArt;
 			productReference = 5EFFEFF828577C7C007DC4C6 /* EmojiArt.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 5EFFEFEF28577C7C007DC4C6;
+			packageReferences = (
+				5EFFF013285B0427007DC4C6 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
 			productRefGroup = 5EFFEFF928577C7C007DC4C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,6 +356,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5EFFF013285B0427007DC4C6 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5EFFF014285B0427007DC4C6 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EFFF013285B0427007DC4C6 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5EFFEFF028577C7C007DC4C6 /* Project object */;
 }
