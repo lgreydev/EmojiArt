@@ -45,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EB0FE2C2886A4CE0068E01D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5EFFEFFD28577C7C007DC4C6 /* SceneDelegate.swift */,
+				5EFFF00428577C7E007DC4C6 /* Assets.xcassets */,
+				5EFFEFFB28577C7C007DC4C6 /* AppDelegate.swift */,
+				5EFFF00628577C7E007DC4C6 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		5EFFEFEF28577C7C007DC4C6 = {
 			isa = PBXGroup;
 			children = (
@@ -64,16 +75,13 @@
 		5EFFEFFA28577C7C007DC4C6 /* EmojiArt */ = {
 			isa = PBXGroup;
 			children = (
-				5EFFEFFB28577C7C007DC4C6 /* AppDelegate.swift */,
-				5EFFEFFD28577C7C007DC4C6 /* SceneDelegate.swift */,
-				5EFFF00428577C7E007DC4C6 /* Assets.xcassets */,
-				5EFFF00628577C7E007DC4C6 /* LaunchScreen.storyboard */,
+				5EB0FE2C2886A4CE0068E01D /* SupportingFiles */,
 				5EB0FE28288695FF0068E01D /* Main.storyboard */,
-				5EFFF00928577C7E007DC4C6 /* Info.plist */,
 				5EFFF00F28577CE2007DC4C6 /* EmojiArtViewController.swift */,
 				5EFFF011285B0266007DC4C6 /* EmojiArtView.swift */,
 				5EFFF016285B0F0F007DC4C6 /* Utilities.swift */,
 				5EB0FE2A288697340068E01D /* ViewController.swift */,
+				5EFFF00928577C7E007DC4C6 /* Info.plist */,
 			);
 			path = EmojiArt;
 			sourceTree = "<group>";
