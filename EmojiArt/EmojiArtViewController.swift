@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import TinyConstraints
 
 class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
 
