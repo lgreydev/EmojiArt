@@ -18,6 +18,8 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
 
     @IBOutlet weak var emojiArtView: EmojiArtView!
 
+    var imageFetcher: ImageFetcher!
+
 }
 
 
@@ -31,12 +33,21 @@ extension EmojiArtViewController {
     }
 
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+
+        imageFetcher = ImageFetcher() { (url, image) in
+            DispatchQueue.main.async {
+                self.emojiArtView.backgroundImage = image
+            }
+        }
+
         session.loadObjects(ofClass: NSURL.self) { nsurls in
-            <#code#>
+            guard let url = nsurls.first as? URL else { return }
+            self.imageFetcher.fetch(url)
         }
 
         session.loadObjects(ofClass: UIImage.self) { images in
-            <#code#>
+            guard let image = images.first as? UIImage else { return }
+            self.imageFetcher.backup = image
         }
     }
 }
