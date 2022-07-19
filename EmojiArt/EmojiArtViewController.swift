@@ -27,6 +27,8 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
         super.viewDidLoad()
         addViews()
         constraintsToViews()
+        emojiArtView.backgroundImage = UIImage(named: "142774")
+        print(#function)
     }
 
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {

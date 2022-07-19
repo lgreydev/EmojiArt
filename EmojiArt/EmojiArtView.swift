@@ -12,10 +12,12 @@ class EmojiArtView: UIView {
     var backgroundImage: UIImage? {
         didSet {
             setNeedsDisplay()
+            print("backgroundImage")
         }
     }
 
     override func draw(_ rect: CGRect) {
         backgroundImage?.draw(in: bounds)
+        print("draw")
     }
 }
