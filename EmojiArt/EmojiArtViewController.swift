@@ -10,24 +10,52 @@ import TinyConstraints
 
 class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
 
-    private lazy var dropZone: UIView = {
-        let view = UIView()
-        return view
-    }()
+    private var dropZone = UIView() {
+        didSet {
+            dropZone.addInteraction(UIDropInteraction(delegate: self))
+        }
+    }
 
     private lazy var emojiArtView: EmojiArtView = {
         let view = EmojiArtView()
         return view
     }()
 
+    var imageFetcher: ImageFetcher!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = . red
-
         addViews()
-        setupDropZone()
         constraintsToViews()
+    }
+
+    func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
+        print(#function)
+        return session.canLoadObjects(ofClass: NSURL.self) && session.canLoadObjects(ofClass: UIImage.self)
+    }
+
+    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        print(#function)
+        return UIDropProposal(operation: .copy)
+    }
+
+    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        print(#function)
+        imageFetcher = ImageFetcher() { (url, image) in
+            DispatchQueue.main.async {
+                self.emojiArtView.backgroundImage = image
+            }
+        }
+
+        session.loadObjects(ofClass: NSURL.self) { nsurl in
+            guard let url = nsurl.first as? URL else { return }
+            self.imageFetcher.fetch(url)
+        }
+
+        session.loadObjects(ofClass: UIImage.self) { images in
+            guard let image = images.first as? UIImage else { return }
+            self.imageFetcher.backup = image
+        }
     }
 }
 
@@ -39,32 +67,7 @@ extension EmojiArtViewController {
     }
 
     private func constraintsToViews() {
-        dropZone.height(100)
-        dropZone.width(200)
-        dropZone.topToSuperview()
-        dropZone.leadingToSuperview()
-        dropZone.backgroundColor = . black
-    }
-
-    private func setupDropZone() {
-        dropZone.addInteraction(UIDropInteraction(delegate: self))
-    }
-
-    func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
-        return session.canLoadObjects(ofClass: NSURL.self) && session.canLoadObjects(ofClass: UIImage.self)
-    }
-
-    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
-        return UIDropProposal(operation: .copy)
-    }
-
-    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
-        session.loadObjects(ofClass: NSURL.self) { nsurl in
-            <#code#>
-        }
-
-        session.loadObjects(ofClass: UIImage.self) { imege in
-            <#code#>
-        }
+        dropZone.edgesToSuperview()
+        emojiArtView.edgesToSuperview()
     }
 }
