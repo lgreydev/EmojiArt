@@ -42,6 +42,10 @@
                             <constraint firstItem="D6P-99-3jn" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="oUn-AZ-AIf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dropZone" destination="D6P-99-3jn" id="1Ce-cW-SRi"/>
+                        <outlet property="emojiArtView" destination="emj-IS-0gK" id="6lj-rJ-5KI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
