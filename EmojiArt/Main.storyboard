@@ -17,12 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XAr-wq-3jh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DocumentCell" textLabel="OWX-AJ-EtC" style="IBUITableViewCellStyleDefault" id="XAr-wq-3jh">
                                 <rect key="frame" x="0.0" y="44.5" width="420" height="51.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAr-wq-3jh" id="4ks-uK-Dgi">
                                     <rect key="frame" x="100" y="0.0" width="320" height="51.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OWX-AJ-EtC">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -50,7 +59,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emj-IS-0gK" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,20 +86,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117" y="811"/>
+            <point key="canvasLocation" x="-210" y="1071"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="y6W-xm-oXA">
             <objects>
                 <splitViewController allowDoubleColumnStyle="YES" id="Gjm-Os-Coh" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="showDetail" id="IMO-KL-1z9"/>
-                        <segue destination="OMH-wN-EUD" kind="relationship" relationship="masterViewController" id="XeC-Uy-Esc"/>
+                        <segue destination="Y6W-OH-hqX" kind="showDetail" identifier="2" id="IMO-KL-1z9"/>
+                        <segue destination="OMH-wN-EUD" kind="relationship" relationship="masterViewController" destinationCreationSelector="1" id="XeC-Uy-Esc"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nok-kj-Y3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-621" y="811"/>
+            <point key="canvasLocation" x="-1095" y="495"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0sh-gn-b0A">
@@ -109,7 +117,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uA-8T-MLF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-333" y="29"/>
+            <point key="canvasLocation" x="-313" y="29"/>
         </scene>
     </scenes>
     <resources>
