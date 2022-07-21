@@ -11,6 +11,7 @@ class EmojiArtDocumentTableViewController: UITableViewController {
 
    var emojiArtDocuments = ["One", "Two", "Three"]
 
+
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -29,7 +30,17 @@ class EmojiArtDocumentTableViewController: UITableViewController {
 
         content.text = emojiArtDocuments[indexPath.row]
 
+        cell.contentConfiguration = content
+
         return cell
     }
+
+    @IBAction func newEmojiArt(_ sender: UIBarButtonItem) {
+        emojiArtDocuments += ["Untitled".madeUnique(withRespectTo: emojiArtDocuments)]
+        tableView.reloadData()
+    }
+
+
+
 
 }
