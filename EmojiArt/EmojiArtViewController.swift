@@ -52,6 +52,12 @@ class EmojiArtViewController: UIViewController {
 
     var emojiArtView = EmojiArtView()
 
+    var emojis = "😎🐶🐱🦅🐤🐛🐜🐦🙉🐕‍🦺🐈‍⬛🦩🦜🐄🦍🌲🎄🧞‍♂️🧑‍🎄👨🏻‍💻👩😻🎃💩🤢🤩😍".map { String($0) }
+
+    override func viewDidLoad() {
+        print(emojis)
+    }
+
 }
 
 
@@ -96,11 +102,13 @@ extension EmojiArtViewController: UIDropInteractionDelegate, UIScrollViewDelegat
 // MARK: - CollectionView Delegate, DataSource
 extension EmojiArtViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return emojis.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
+
+        return cell
     }
 
 
