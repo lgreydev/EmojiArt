@@ -7,7 +7,14 @@
 
 import UIKit
 
-class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScrollViewDelegate {
+class EmojiArtViewController: UIViewController {
+
+    @IBOutlet weak var emojiCollectionView: UICollectionView! {
+        didSet {
+            emojiCollectionView.dataSource = self
+            emojiCollectionView.delegate = self
+        }
+    }
 
     @IBOutlet weak var dropZone: UIView! {
         didSet {
@@ -48,7 +55,9 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
 }
 
 
-extension EmojiArtViewController {
+
+// MARK: - DropInteraction and ScrollView - Delegate
+extension EmojiArtViewController: UIDropInteractionDelegate, UIScrollViewDelegate {
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         return session.canLoadObjects(ofClass: NSURL.self) && session.canLoadObjects(ofClass: UIImage.self)
     }
@@ -81,5 +90,19 @@ extension EmojiArtViewController {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return emojiArtView
     }
+}
+
+
+// MARK: - CollectionView Delegate, DataSource
+extension EmojiArtViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+
+
 }
 
