@@ -57,23 +57,20 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="EmojiArtViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6P-99-3jn">
-                                <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                                <rect key="frame" x="0.0" y="70" width="1045.5" height="954"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emj-IS-0gK" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
-                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtH-Bi-Rav">
+                                        <rect key="frame" x="0.0" y="0.0" width="1046" height="954"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="2NG-CL-oAo"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="upG-aD-Vrx"/>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="emj-IS-0gK" firstAttribute="top" secondItem="D6P-99-3jn" secondAttribute="top" id="2Dt-x2-r7c"/>
-                                    <constraint firstAttribute="bottom" secondItem="emj-IS-0gK" secondAttribute="bottom" id="9e4-84-LB5"/>
-                                    <constraint firstAttribute="trailing" secondItem="emj-IS-0gK" secondAttribute="trailing" id="oMc-wP-z6G"/>
-                                    <constraint firstItem="emj-IS-0gK" firstAttribute="leading" secondItem="D6P-99-3jn" secondAttribute="leading" id="ucO-PB-uCy"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -87,20 +84,20 @@
                     </view>
                     <connections>
                         <outlet property="dropZone" destination="D6P-99-3jn" id="1Ce-cW-SRi"/>
-                        <outlet property="emojiArtView" destination="emj-IS-0gK" id="6lj-rJ-5KI"/>
+                        <outlet property="scrollView" destination="RtH-Bi-Rav" id="osv-Wv-uDy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210" y="1071"/>
+            <point key="canvasLocation" x="-210.3953147877013" y="1070.5078125"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="y6W-xm-oXA">
             <objects>
                 <splitViewController allowDoubleColumnStyle="YES" id="Gjm-Os-Coh" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="showDetail" identifier="2" id="IMO-KL-1z9"/>
                         <segue destination="OMH-wN-EUD" kind="relationship" relationship="masterViewController" destinationCreationSelector="1" id="XeC-Uy-Esc"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="detailViewController" id="wLj-UN-Nx8"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nok-kj-Y3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
